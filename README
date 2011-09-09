@@ -15,11 +15,26 @@
 CRONTABで定期的に実行されるようにする。
 
 ◆設定
-※今のところ特に無し。
+１．プロフィール項目をつくる
+例）
+プロフィール項目：所属部署（ラジオボタン）
+選択項目：総務部、開発部、営業部
+
+２．プロフィールの選択肢と同名のコミュニティをつくる
+総務部コミュニティ、開発部コミュニティ、営業部コミュニティ
+
+３．タスクを実行 ./symfony zu-p2c
+
+４．動作確認後、うまく動いていたらCRONTABに登録する
+
 
 ◆TODO
 issueで管理
+https://github.com/tejima/opProfile2CommunityPlugin/issues
 
+◆本プラグインについて
+https://github.com/tejima/opProfile2CommunityPlugin
 
-
+◆ライセンス
+Apache2.0
 

@@ -48,8 +48,13 @@ class P2CTask extends sfBaseTask
         */
 
         $mp_list = Doctrine_Query::create()->from("MemberProfile mp")->where("mp.profile_option_id = ?",$po["id"])->fetchArray();
-        //入っているべきでない人を追い出す
-        $notin = array("1");
+        //入っているべきでない人(オーナーとプロフィール該当者)を追い出す
+        
+        $admin_list = Doctrine_Query::create()->from("CommunityMemberPosition cmp")->where("cmp.community_id = ?",$c['id'])->addWhere("name = ?","admin")->fetchArray();
+        $notin = array();
+        foreach($admin_list as $admin){
+          $notin[] = $admin["member_id"];
+        }
         foreach($mp_list as $mp){
           $notin[] = $mp["member_id"];
         }
